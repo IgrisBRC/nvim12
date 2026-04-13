@@ -64,11 +64,3 @@ for entry in "${LANGS[@]}"; do
     echo "✓ $lang queries synced."
 done
 
-# Final check for the sh/bash relationship
-if [ -f "$TARGET_DIR/bash.so" ] && [ ! -f "$TARGET_DIR/sh.so" ]; then
-    # We DON'T copy the .so (to avoid symbol errors), 
-    # but we DO need the queries for 'sh' filetype to work.
-    mkdir -p "$HOME/.local/share/nvim/site/queries/sh"
-    cp "$HOME/.local/share/nvim/site/queries/bash/"*.scm "$HOME/.local/share/nvim/site/queries/sh/" 2>/dev/null
-    echo "✓ sh queries aliased from bash."
-fi
