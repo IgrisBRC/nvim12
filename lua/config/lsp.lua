@@ -42,6 +42,24 @@ vim.lsp.config('emmet_language_server', {
 
 vim.lsp.enable('emmet_language_server')
 
+vim.lsp.config('cssls', {
+    capabilities = capabilities,
+    cmd = { "vscode-css-language-server", "--stdio" },
+    filetypes = { "css", "scss", "less" },
+    settings = {
+        css = { validate = true }
+    }
+})
+
+vim.lsp.enable('cssls')
+
+vim.lsp.config('html', {
+    cmd = { "vscode-html-language-server", "--stdio" },
+    filetypes = { "html" },
+})
+
+vim.lsp.enable('html')
+
 vim.diagnostic.config({ virtual_text = true })
 vim.diagnostic.enable()
 vim.keymap.set('n', 'E', vim.diagnostic.open_float, { desc = 'Show diagnostic float' })

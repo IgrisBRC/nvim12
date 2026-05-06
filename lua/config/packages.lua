@@ -36,6 +36,11 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.laststatus = 3
 
 vim.keymap.set('n', '<leader>t', ':Ex<CR>', { desc = 'File view' })
+vim.opt.exrc = true
+
+vim.treesitter.query.add_predicate('is-not?', function(_, _, _, _)
+  return false
+end, { force = true })
 
 local plugins = {
     { src = "https://github.com/neovim/nvim-lspconfig" },
@@ -45,8 +50,9 @@ local plugins = {
     { src = "https://github.com/nvim-tree/nvim-web-devicons" },
     { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
     { src = "https://github.com/nvim-telescope/telescope.nvim" },
-    { src = "https://github.com/yetone/avante.nvim", build = "nice -n 19 make -j2" },
-    { src = "https://github.com/sainnhe/gruvbox-material" },
+    { src = "https://github.com/yetone/avante.nvim",                       build = "nice -n 19 make -j2" },
+    -- { src = "https://github.com/sainnhe/gruvbox-material" },
+    { src = "https://github.com/catppuccin/nvim",                          name = "catppuccin" },
     { src = "https://github.com/hrsh7th/nvim-cmp" },
     { src = "https://github.com/hrsh7th/cmp-nvim-lsp" },
     { src = "https://github.com/hrsh7th/cmp-buffer" },
